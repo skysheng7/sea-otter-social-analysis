@@ -1,0 +1,14 @@
+services:
+  analysis-env:
+    image: skysheng7/otter-social-analysis:latest
+    ports:
+      - "8888:8888"  # Jupyter Lab
+    volumes:
+      - .:/home/jovyan/project  # Mount current directory
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    deploy:
+      resources:
+        limits:
+          memory: 5G
+    platform: linux/amd64  # Ensure compatibility
